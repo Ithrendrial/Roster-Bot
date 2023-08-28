@@ -79,7 +79,7 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     if(interaction.commandName === "agenda-done") {
-        currentAgendaTakerIndex = (currentMinuteTakerIndex + 1) % agenda_roster.length;
+        currentAgendaTakerIndex = (currentAgendaTakerIndex + 1) % agenda_roster.length;
         const currentAgendaTaker = agenda_roster[currentAgendaTakerIndex];
         
         await interaction.reply(`It's now ${currentAgendaTaker}'s turn write the agenda.`);
