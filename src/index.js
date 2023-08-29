@@ -28,6 +28,14 @@ const commands = [
         name: 'agenda-done',
         description: 'Mark that the current person has finished writing the agenda.',
     },
+    {
+        name: 'minutes-peek',
+        description: 'Check who is on minutes after the current person.',
+    },
+    {
+        name: 'agenda-peek',
+        description: 'Check who is on the agenda after the current person.',
+    },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
@@ -83,6 +91,18 @@ client.on('interactionCreate', async (interaction) => {
         const currentAgendaTaker = agenda_roster[currentAgendaTakerIndex];
         
         await interaction.reply(`It's now ${currentAgendaTaker}'s turn write the agenda.`);
+    }
+
+    if(interaction.commandName === "agenda-peek") {
+        const currentAgendaTaker = agenda_roster[currentAgendaTakerIndex];
+        const nextAgendaTaker = agenda_roster[(currentAgendaTakerIndex + 1) % agenda_roster.length];
+        await interaction.reply(`${nextAgendaTaker} is on the agenda after ${currentAgendaTaker}`);
+    }
+
+    if(interaction.commandName === "minutes-peek") {
+        const currentMinutesTaker = minutes_roster[currentMinutesTakerIndex];
+        const nextMinutesTaker = minutes_roster[(currentMinutesTakerIndex + 1) % minutes_roster.length];
+        await interaction.reply(`${nextMinutesTaker} is on the minutes after ${currentMinutesTaker}`);
     }
 });
 
