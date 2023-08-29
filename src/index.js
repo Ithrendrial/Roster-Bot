@@ -100,9 +100,9 @@ client.on('interactionCreate', async (interaction) => {
     }
 
     if(interaction.commandName === "minutes-peek") {
-        const currentMinutesTaker = minutes_roster[currentMinutesTakerIndex];
-        const nextMinutesTaker = minutes_roster[(currentMinutesTakerIndex + 1) % minutes_roster.length];
-        await interaction.reply(`${nextMinutesTaker} is on the minutes after ${currentMinutesTaker}`);
+        const currentMinuteTaker = minutes_roster[currentMinuteTakerIndex];
+        const nextMinuteTaker = minutes_roster[(currentMinuteTakerIndex + 1) % minutes_roster.length];
+        await interaction.reply(`${nextMinuteTaker} is on the minutes after ${currentMinuteTaker}`);
     }
 });
 
