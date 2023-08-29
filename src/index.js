@@ -56,8 +56,8 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
     }
 })();
 
-const minutes_roster = ["Jack", "Rachel", "Rob", "Jade", "Moni"];
-const agenda_roster = ["Jade", "Moni", "Jack", "Rachel", "Rob"];
+const agenda_roster = ["Jack", "Rachel", "Rob", "Jade", "Moni"];
+const minutes_roster = ["Moni", "Jack", "Rachel", "Rob", "Jade"];
 
 let currentMinuteTakerIndex = 0;
 let currentAgendaTakerIndex = 0;
